@@ -21,7 +21,7 @@ public class Config extends Application {
      */
     @Override
     public Set<Class<?>> getClasses() {
-        HashSet providers = new HashSet<Class<?>>();
+        HashSet<Class<?>> providers = new HashSet<>();
         providers.add(TestService.class);
         return providers;
     }
