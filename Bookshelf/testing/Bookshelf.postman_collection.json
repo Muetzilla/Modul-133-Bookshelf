@@ -26,6 +26,110 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Single Book Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Bookshelf-1.0-SNAPSHOT/resource/book/read/?uuid=3247c340-c712-402e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Bookshelf-1.0-SNAPSHOT",
+						"resource",
+						"book",
+						"read",
+						""
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Bookshelf-1.0-SNAPSHOT/resource/book/list/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Bookshelf-1.0-SNAPSHOT",
+						"resource",
+						"book",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Publishers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Bookshelf-1.0-SNAPSHOT/resource/publisher/list/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Bookshelf-1.0-SNAPSHOT",
+						"resource",
+						"publisher",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single Publisher",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Bookshelf-1.0-SNAPSHOT/resource/publisher/read/?uuid=ecd86148-5341-43c6-81ed-f3f4595965dc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Bookshelf-1.0-SNAPSHOT",
+						"resource",
+						"publisher",
+						"read",
+						""
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "ecd86148-5341-43c6-81ed-f3f4595965dc"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
