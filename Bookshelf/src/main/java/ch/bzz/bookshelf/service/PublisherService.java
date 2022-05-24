@@ -1,17 +1,17 @@
 package ch.bzz.bookshelf.service;
 
 import ch.bzz.bookshelf.data.DataHandler;
+import ch.bzz.bookshelf.model.Book;
 import ch.bzz.bookshelf.model.Publisher;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import ch.bzz.bookshelf.data.DataHandler;
 
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -54,6 +54,70 @@ public class PublisherService {
         return Response
                 .status(httpStatus)
                 .entity(publisher)
+                .build();
+    }
+
+    /**
+     *
+     * @param publisherUUID
+     * @return
+     */
+    @GET
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deletePublisher(
+            @QueryParam("uuid") String publisherUUID
+    ) {
+        int httpStatus = 200;
+        DataHandler.getInstance().deletePublisher(publisherUUID);
+        return Response
+                .status(httpStatus)
+                .build();
+    }
+
+    /**
+     *
+     * @param publisherUUID
+     * @param publisher
+     * @return
+     */
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updatePublisher(
+            @FormParam("publisherUUID") String publisherUUID,
+            @FormParam("publisher") String publisher) {
+        int httpStatus = 200;
+        Publisher publisherObject = DataHandler.getInstance().readPublisherByUUID(publisherUUID);
+        publisherObject.setPublisher(publisher);
+
+        DataHandler.getInstance().updatePublisher();
+        return Response
+                .status(httpStatus)
+                .build();
+    }
+
+    /**
+     *
+     * @param publisher
+     * @return
+     */
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+
+    public Response insertPublisher(
+            @FormParam("publisher") String publisher    ) {
+        Publisher publisherObject = new Publisher();
+        publisherObject.setPublisherUUID(String.valueOf(UUID.randomUUID()));
+        publisherObject.setPublisher(publisher);
+
+        DataHandler.getInstance().insertPublisher(publisherObject);
+
+        int httpStatus = 200;
+
+        return Response
+                .status(httpStatus)
                 .build();
     }
 }
